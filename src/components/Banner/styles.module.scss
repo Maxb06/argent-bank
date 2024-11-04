@@ -1,0 +1,26 @@
+.container {
+  height: 400px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 0% 33%;
+  width: 100%;
+ 
+
+  &__content {
+    background-color: white;
+    width: 360px;
+    padding: 2rem;
+    margin: 2rem;
+   
+
+    &__subtitle {
+      font-size: 1.5rem;
+      font-weight: bold;
+
+      &_text {
+        margin-top: 15px;
+        font-size: 1.2rem;
+      }
+    }
+  }
+}
