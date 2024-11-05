@@ -1,0 +1,18 @@
+.container {
+    flex: 1;
+    padding: 2.5rem;
+    text-align: center;
+  
+    .icon {
+      width: 150px;
+      border-radius: 50%;
+      border: 10px solid #00bc77;
+      padding: 1rem;
+    }
+  
+    &__title {
+      font-size: 1.25rem;
+      margin: 1rem 0 0.5rem;
+      color: #222;
+    }
+  }
