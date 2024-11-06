@@ -3,19 +3,28 @@ import './styles/global.scss';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import User from './pages/User';
-import Header from './components/Header/Header';
-import Footer from './components/Footer/Footer';
+import Layout from './components/Layout/Layout';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 
 function App() {
   return (
     <Router>
-      <Header />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/user" element={<User />} />
+        <Route element={<Layout />}>
+          {/* Routes publiques */}
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          {/* Routes protégées */}
+          <Route
+            path="/user"
+            element={
+              <PrivateRoute>
+                <User />
+              </PrivateRoute>
+            }
+          />
+        </Route>
       </Routes>
-      <Footer />
     </Router>
   );
 }
