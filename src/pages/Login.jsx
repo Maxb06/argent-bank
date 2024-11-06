@@ -1,5 +1,11 @@
+import FormSignin from '../components/FormSignin/FormSignin';
+
 const Login = () => {
-    return <p>Hello Login</p>
-}
+  return (
+    <>
+      <FormSignin />
+    </>
+  );
+};
 
 export default Login;

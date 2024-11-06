@@ -1,0 +1,51 @@
+.container {
+  background-color: white;
+  width: 300px;
+  margin: 0 auto;
+  margin-top: 3rem;
+  padding: 2rem;
+   
+    &__title {
+      margin: 20px 0;
+    }
+  
+    .wrapper {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+      margin-bottom: 15px;
+  
+      label {
+        font-weight: 700;
+      }
+  
+      input {
+        font-size: 1.2rem;
+        padding: 5px;
+      }
+    }
+  
+    .remember {
+      margin-bottom: 15px;
+  
+      input {
+        cursor: pointer;
+      }
+  
+      label {
+        margin-left: 10px;
+      }
+    }
+  
+    .button {
+      width: 100%;
+      font-size: 1.1rem;
+      text-decoration: underline;
+
+    }
+  }
+  
+  .error {
+    margin: 5px 0;
+    color: rgb(177, 2, 2);
+  }
