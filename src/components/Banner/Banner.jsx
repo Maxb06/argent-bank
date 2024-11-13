@@ -1,22 +1,20 @@
-import styles from './styles.module.scss';
+import styles from './banner.module.scss';
 import PropTypes from 'prop-types';
 
-const Banner = ({ image }) => {
+const Banner = ({ image, subtitles, description }) => {
   return (
     <div
       className={styles.container}
       style={{ backgroundImage: `url("${image}")` }}
     >
       <section className={styles.container__content}>
-        <p className={styles.container__content__subtitle}>No fees.</p>
-        <p className={styles.container__content__subtitle}>
-          No minimum deposit.
-        </p>
-        <p className={styles.container__content__subtitle}>
-          High interest rates.
-        </p>
+        {subtitles.map((subtitle, index) => (
+          <p key={index} className={styles.container__content__subtitle}>
+            {subtitle}
+          </p>
+        ))}
         <p className={styles.container__content__subtitle_text}>
-          Open a savings account with Argent Bank today!
+          {description}
         </p>
       </section>
     </div>
@@ -25,6 +23,8 @@ const Banner = ({ image }) => {
 
 Banner.propTypes = {
   image: PropTypes.string.isRequired,
+  subtitles: PropTypes.arrayOf(PropTypes.string).isRequired,
+  description: PropTypes.string.isRequired,
 };
 
 export default Banner;
