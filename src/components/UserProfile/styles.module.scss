@@ -1,5 +1,14 @@
-h1 {
+.container {
+  text-align: center;
+  margin-bottom: 1.5rem;
+
+  .editButton {
     color: #FFFFFF;
     font-weight: bold;
     text-align: center;
+    margin: 20px 0;
+    padding: 10px;
+    border-color: #00bc77;
+    background-color: #00bc77;
+  }
 }
