@@ -19,13 +19,21 @@ const accountsData = [
 ];
 
 const AccountList = () => {
-  return (
-    <section>
-      {accountsData.map((account, index) => (
-        <Account account={account} key={index} />
-      ))}
-    </section>
-  );
-};
-
-export default AccountList;
+    const balanceText = 'Available Balance';
+    const buttonText = 'View Transactions';
+  
+    return (
+      <section>
+        {accountsData.map((account, index) => (
+          <Account
+            account={account}
+            balanceText={balanceText}
+            buttonText={buttonText}
+            key={index}
+          />
+        ))}
+      </section>
+    );
+  };
+  
+  export default AccountList;
