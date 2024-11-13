@@ -1,6 +1,6 @@
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
-import { loginUser } from '../../features/authSlice';
+import { loginUser, fetchUserProfile } from '../../store/authSlice';
 import { useNavigate } from 'react-router-dom';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
@@ -23,6 +23,7 @@ const FormSignin = () => {
         clearErrors();
         try {
             await dispatch(loginUser(data)).unwrap();
+            await dispatch(fetchUserProfile()).unwrap();
             navigate('/user');
         } catch (error) {
             console.log(error);
