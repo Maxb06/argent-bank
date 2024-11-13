@@ -39,6 +39,19 @@ export const fetchUserProfile = createAsyncThunk(
   }
 );
 
+export const updateUserProfile = createAsyncThunk(
+  'auth/updateUserProfile',
+  async (updatedData, thunkAPI) => {
+    try {
+      const response = await axios.put('user/profile', updatedData);
+      return response.data.body;
+    } catch (error) {
+      console.error('Error updating user profile:', error);
+      return thunkAPI.rejectWithValue('Failed to update user profile');
+    }
+  }
+);
+
 const initialState = {
   token:
     localStorage.getItem('token') ||
@@ -86,6 +99,22 @@ const authSlice = createSlice({
         state.user = action.payload; // Met à jour les info utilisateur
       })
       .addCase(fetchUserProfile.rejected, (state, action) => {
+        state.status = 'failed';
+        state.error = action.payload;
+      })
+      // Actions pour updateUserProfile
+      .addCase(updateUserProfile.pending, (state) => {
+        state.status = 'loading';
+        state.error = null;
+      })
+      .addCase(updateUserProfile.fulfilled, (state, action) => {
+        state.status = 'succeeded';
+        state.user = {
+          ...state.user,
+          ...action.payload,
+        };
+      })
+      .addCase(updateUserProfile.rejected, (state, action) => {
         state.status = 'failed';
         state.error = action.payload;
       });
