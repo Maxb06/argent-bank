@@ -4,12 +4,19 @@
   margin: 0 auto;
   margin-top: 3rem;
   padding: 2rem;
+
+  i {
+    display: flex;
+    justify-content: center;
+  }
    
-    &__title {
+    .title {
       margin: 20px 0;
+      display: flex;
+      justify-content: center;
     }
   
-    .wrapper {
+    .inputWrapper {
       display: flex;
       flex-direction: column;
       text-align: left;
@@ -25,23 +32,22 @@
       }
     }
   
-    .remember {
+    .inputRemember {
       margin-bottom: 15px;
-  
-      input {
-        cursor: pointer;
-      }
   
       label {
         margin-left: 10px;
       }
     }
   
-    .button {
+    .signInButton {
       width: 100%;
       font-size: 1.1rem;
       text-decoration: underline;
-
+      color: white;
+      background-color: #00bc77;
+      border: none;
+      padding: 7px;
     }
   }
   
