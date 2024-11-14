@@ -19,6 +19,14 @@ const FormSignin = () => {
         resolver: yupResolver(schema),
     });
 
+    /**
+     * Handles the form submission.
+     * Clears any existing errors, attempts to login and fetch the user profile.
+     * If the login or fetch profile fails, logs the error and sets a generic error
+     * on the form for display.
+     * If the login and fetch profile succeed, redirects to the user route.
+     * @param {Object} data - The form data.
+     */
     const onSubmit = async (data) => {
         clearErrors();
         try {

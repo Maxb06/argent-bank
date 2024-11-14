@@ -11,13 +11,18 @@ const EditName = ({ onCancel }) => {
     const [firstName, setFirstName] = useState(user.firstName);
     const [lastName, setLastName] = useState(user.lastName);
 
+/**
+ * Handles saving the updated user profile.
+ * Dispatches an action to update the user's profile with the new first name and last name.
+ * On successful update, it triggers the onCancel callback to exit edit mode.
+ * Logs an error to the console if the update fails.
+ */
     const handleSave = async () => {
         try {
             await dispatch(updateUserProfile({ firstName, lastName })).unwrap();
             onCancel(); // Retour au mode d'affichage après la save
         } catch (error) {
             console.error('Failed to update user profile:', error);
-            // gestion d'erreurs à ajouter ici si besoin
         }
     };
 

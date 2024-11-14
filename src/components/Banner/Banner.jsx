@@ -1,6 +1,16 @@
 import styles from './banner.module.scss';
 import PropTypes from 'prop-types';
 
+/**
+ * Banner component that displays an image with subtitles and a description.
+ *
+ * @param {Object} props - Component properties.
+ * @param {string} props.image - URL of the background image.
+ * @param {Array<string>} props.subtitles - Array of subtitle strings to display.
+ * @param {string} props.description - Description text to display.
+ *
+ * @returns {JSX.Element} A JSX element representing a banner with a background image, subtitles, and description.
+ */
 const Banner = ({ image, subtitles, description }) => {
   return (
     <div

@@ -66,6 +66,11 @@ const authSlice = createSlice({
   name: 'auth',
   initialState,
   reducers: {
+    /**
+     * Logs out the user by removing the token from local storage and session
+     * storage, and setting the user and token to null in the state.
+     * @function
+     */
     logout(state) {
       state.token = null;
       state.user = null;

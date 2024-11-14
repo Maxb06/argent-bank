@@ -18,6 +18,16 @@ const accountsData = [
   },
 ];
 
+/**
+ * A component that renders a list of accounts.
+ *
+ * This component takes no props and returns a section element
+ * containing a list of Account components, each with an account
+ * object from the accountsData array as a prop.
+ *
+ * @returns {ReactElement} A section element containing a list of Account components.
+ */
+
 const AccountList = () => {
   return (
     <section>

@@ -1,6 +1,17 @@
 import PropTypes from 'prop-types';
 import styles from './account.module.scss';
 
+/**
+ * Component to display account information.
+ *
+ * @param {Object} props - Component properties.
+ * @param {Object} props.account - Account details to display.
+ * @param {string} props.account.title - Title of the account.
+ * @param {number} props.account.number - Account number.
+ * @param {number} props.account.amount - Balance amount of the account.
+ *
+ * @returns {JSX.Element} A JSX element displaying account information and a button to view transactions.
+ */
 const Account = ({ account }) => {
   return (
     <div className={styles.container}>

@@ -10,6 +10,22 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchUserProfile } from './store/authSlice';
 
+/**
+ * Main App component.
+ *
+ * Dispatches fetchUserProfile action if token is present in state but user is not.
+ *
+ * Renders routes wrapped in a Layout component.
+ *
+ * Public routes:
+ * - /
+ * - /login
+ *
+ * Private routes:
+ * - /user
+ *
+ * @return {JSX.Element} The App component.
+ */
 function App() {
   const dispatch = useDispatch();
   const token = useSelector((state) => state.auth.token);

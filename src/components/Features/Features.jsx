@@ -4,6 +4,11 @@ import iconChat from '../../assets/img/icon-chat.png';
 import iconMoney from '../../assets/img/icon-money.png';
 import iconSecurity from '../../assets/img/icon-security.png';
 
+/**
+ * A section that displays the features of the bank
+ *
+ * @returns A section element with three FeatureItem components
+ */
 const Features = () => {
   const features = [
     {
