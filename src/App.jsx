@@ -22,7 +22,7 @@ import { fetchUserProfile } from './store/authSlice';
  * - /login
  *
  * Private routes:
- * - /user
+ * - /profile
  *
  * @return {JSX.Element} The App component.
  */
@@ -53,7 +53,7 @@ function App() {
           />
           {/* Routes protégées */}
           <Route
-            path="/user"
+            path="/profile"
             element={
               <PrivateRoute>
                 <User />

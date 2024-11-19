@@ -29,7 +29,7 @@ const Header = () => {
       <nav className={styles.header__nav}>
         {token && user ? (
           <>
-            <Link to="/user" className={styles.header__nav__item}>
+            <Link to="/profile" className={styles.header__nav__item}>
               <i className="fa fa-user-circle"></i>
               {user.firstName}
             </Link>

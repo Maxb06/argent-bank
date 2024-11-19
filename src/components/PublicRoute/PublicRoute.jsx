@@ -15,7 +15,7 @@ import PropTypes from 'prop-types';
  */
 const PublicRoute = ({ children }) => {
     const token = useSelector((state) => state.auth.token);
-    return !token ? children : <Navigate to="/user" />;
+    return !token ? children : <Navigate to="/profile" />;
 };
 
 PublicRoute.propTypes = {

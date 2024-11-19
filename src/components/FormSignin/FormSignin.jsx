@@ -24,7 +24,7 @@ const FormSignin = () => {
      * Clears any existing errors, attempts to login and fetch the user profile.
      * If the login or fetch profile fails, logs the error and sets a generic error
      * on the form for display.
-     * If the login and fetch profile succeed, redirects to the user route.
+     * If the login and fetch profile succeed, redirects to the user profile route.
      * @param {Object} data - The form data.
      */
     const onSubmit = async (data) => {
@@ -32,7 +32,7 @@ const FormSignin = () => {
         try {
             await dispatch(loginUser(data)).unwrap();
             await dispatch(fetchUserProfile()).unwrap();
-            navigate('/user');
+            navigate('/profile');
         } catch (error) {
             console.log(error);
             setError('generic', { type: 'generic', message: 'Invalid email or password' });
