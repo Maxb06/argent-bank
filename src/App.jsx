@@ -6,6 +6,7 @@ import User from './pages/User';
 import Layout from './layout/Layout';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import PublicRoute from './components/PublicRoute/PublicRoute';
+import NotFound from './components/NotFound/NotFound';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchUserProfile } from './store/authSlice';
@@ -60,6 +61,8 @@ function App() {
               </PrivateRoute>
             }
           />
+          {/* Route pour page not found */}
+          <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
     </Router>
