@@ -1,4 +1,10 @@
+@use "../../styles/mixins";
+
 .features {
-    display: flex;
-    background-color: white;
+  display: flex;
+  background-color: white;
+
+  @include mixins.large {
+    flex-direction: column;
   }
+}

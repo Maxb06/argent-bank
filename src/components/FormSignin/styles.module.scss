@@ -1,3 +1,5 @@
+@use "../../styles/mixins";
+
 .container {
   background-color: white;
   width: 300px;
@@ -48,6 +50,8 @@
       background-color: #00bc77;
       border: none;
       padding: 7px;
+
+      @include mixins.btn(8px); 
     }
   }
   

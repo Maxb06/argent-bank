@@ -1,3 +1,5 @@
+@use "../../styles/mixins";
+
 .container {
   width: 80%;
   display: flex;
@@ -8,6 +10,10 @@
   margin: 0 auto;
   margin-bottom: 2rem;
   background-color: white;
+
+  @include mixins.mobile {
+    flex-direction: column;
+  }
 
   &__content {
     width: 100%;
@@ -25,14 +31,23 @@
   }
 
   &__action {
+    @include mixins.mobile {
+      width: 100%;
+      flex: 1;
+    }
+
     &__button {
+      @include mixins.btn(9px);
       font-size: 1.1rem;
       font-weight: 700;
       width: 200px;
       margin-top: 1rem;
-      border-color: #00bc77;
-      background-color: #00bc77;
-      color: #FFF;
+      -webkit-box-shadow: inset -3px -3px 5px -3px #000000;
+      box-shadow: inset -3px -3px 5px -3px #000000;
+
+      @include mixins.mobile {
+        width: 100%;
+      }
     }
   }
 }
