@@ -17,11 +17,28 @@ export const loginUser = createAsyncThunk(
       } else {
         sessionStorage.setItem('token', token);
       }
-
       return token;
     } catch (error) {
-      console.log(error);
-      return thunkAPI.rejectWithValue('Invalid email or password');
+      let errorMessage = 'An error occurred';
+
+      if (error.response) {
+        const status = error.response.status;
+
+        if (status === 401) {
+          errorMessage = 'Invalid email or password';
+        } else if (status === 503) {
+          errorMessage = 'Service unavailable. Please try again later.';
+        } else {
+          errorMessage = `Error ${status}: ${error.response.data.message || 'An error occurred'}`;
+        }
+      } else if (error.request) {
+        errorMessage = 'Network error. Please check your internet connection.';
+      } else {
+        errorMessage = error.message;
+      }
+
+      console.error('Login error:', errorMessage);
+      return thunkAPI.rejectWithValue(errorMessage);
     }
   }
 );
@@ -33,8 +50,27 @@ export const fetchUserProfile = createAsyncThunk(
       const response = await axios.post('user/profile');
       return response.data.body;
     } catch (error) {
-      console.error('Error fetching user profile:', error);
-      return thunkAPI.rejectWithValue('Failed to fetch user profile');
+      let errorMessage = 'An error occurred';
+
+      if (error.response) {
+        const status = error.response.status;
+
+        if (status === 401) {
+          errorMessage = 'Session expired. Please log in again.';
+          thunkAPI.dispatch(logout());
+        } else if (status === 503) {
+          errorMessage = 'Service unavailable. Please try again later.';
+        } else {
+          errorMessage = `Error ${status}: ${error.response.data.message || 'An error occurred'}`;
+        }
+      } else if (error.request) {
+        errorMessage = 'Network error. Please check your internet connection.';
+      } else {
+        errorMessage = error.message;
+      }
+
+      console.error('Error fetching user profile:', errorMessage);
+      return thunkAPI.rejectWithValue(errorMessage);
     }
   }
 );
@@ -46,8 +82,27 @@ export const updateUserProfile = createAsyncThunk(
       const response = await axios.put('user/profile', updatedData);
       return response.data.body;
     } catch (error) {
-      console.error('Error updating user profile:', error);
-      return thunkAPI.rejectWithValue('Failed to update user profile');
+      let errorMessage = 'An error occurred';
+
+      if (error.response) {
+        const status = error.response.status;
+
+        if (status === 401) {
+          errorMessage = 'Session expired. Please log in again.';
+          thunkAPI.dispatch(logout());
+        } else if (status === 503) {
+          errorMessage = 'Service unavailable. Please try again later.';
+        } else {
+          errorMessage = `Error ${status}: ${error.response.data.message || 'An error occurred'}`;
+        }
+      } else if (error.request) {
+        errorMessage = 'Network error. Please check your internet connection.';
+      } else {
+        errorMessage = error.message;
+      }
+
+      console.error('Error updating user profile:', errorMessage);
+      return thunkAPI.rejectWithValue(errorMessage);
     }
   }
 );

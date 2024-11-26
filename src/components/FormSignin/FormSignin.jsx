@@ -35,8 +35,8 @@ const FormSignin = () => {
             navigate('/profile');
         } catch (error) {
             console.log(error);
-            setError('generic', { type: 'generic', message: 'Invalid email or password' });
-        }
+            setError('generic', { type: 'generic', message: error });
+        }        
     };
 
     return (

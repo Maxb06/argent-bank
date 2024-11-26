@@ -15,7 +15,12 @@ import styles from './styles.module.scss';
  */
 const UserProfile = () => {
   const user = useSelector((state) => state.auth.user);
+  const error = useSelector((state) => state.auth.error);
   const [isEditing, setIsEditing] = useState(false);
+
+  if (error) {
+    return <div className={styles.error}>Error: {error}</div>;
+  }
 
   if (!user) {
     return <div className={styles.container}>Loading...</div>;
@@ -39,18 +44,20 @@ const UserProfile = () => {
 
   return (
     <div className={styles.container}>
-      {isEditing ? (
-        <EditName onCancel={handleCancelEdit} />
-      ) : (
-        <>
-          <h1>
-            Welcome back<br />
+      <h1>
+        Welcome back<br />
+        {isEditing ? (
+          <EditName onCancel={handleCancelEdit} />
+        ) : (
+          <>
             {user.firstName} {user.lastName}!
-          </h1>
-          <button onClick={handleEditClick} className={styles.editButton}>
-            Edit Name
-          </button>
-        </>
+          </>
+        )}
+      </h1>
+      {!isEditing && (
+        <button onClick={handleEditClick} className={styles.editButton}>
+          Edit Name
+        </button>
       )}
     </div>
   );
